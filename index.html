@@ -75,6 +75,17 @@
           CSS rule to control the page size, margin, and to turn off the default
           header and footer of the browser.
         </p>
+
+
+        <div style="border: 2px solid red;">
+          Setup für Brother MFC-L3770CDW (Office):<br>
+          <ol>
+            <li>Firefox nutzen</li>
+            <li>Beim Print dialog: "Pages: Current", sodass nur eine Seite gedruckt wird. <b>Mit 2  Seiten wird die untere Seite erst bedruckt!</b></li>
+            <li>Zuerst einen Test-Druck ausführen, um die Einstellungen zu überprüfen!</li>
+            <li>Im Drucker vorne das Papier einlegen.</li>
+          </ol>
+        </div>
       </div>
       <form @submit.prevent="generateLabels()" class="mb-8 print:hidden">
         <!-- User Input Fields -->
@@ -194,12 +205,12 @@
     </div>
 
     <div
-      class="container mx-auto w-[210mm] border px-[8.45mm] py-[13.5mm] print:w-full print:max-w-full print:border-0"
+      class="container mx-auto w-[210mm] border px-[9.00mm] py-[13.8mm] print:w-full print:max-w-full print:border-0"
     >
       <!-- Display QR Code Labels -->
-      <ol class="grid grid-cols-7 gap-x-[2.55mm]">
+      <ol class="grid grid-cols-7 gap-x-[4.0mm] gap-y-[0.00mm]">
         <template x-for="label in labels">
-          <li class="h-[10mm] w-[25.4mm]">
+          <li class="h-[10mm] w-[25.4mm] py-[0.2mm]" style="transform: scale(0.95);">
             <div
               class="flex h-[9mm] w-[24.4mm] items-center border-[0.5mm] odd:border-blue-500 even:border-red-300"
               :class="{'even:border-transparent odd:border-transparent': !borderToggle}"
@@ -254,7 +265,7 @@
     <script>
       function qrCodeApp() {
         return {
-          startNumber: 1,
+          startNumber: 10001,
           prefix: "ASN",
           leadingZeros: 4,
           borderToggle: false,
